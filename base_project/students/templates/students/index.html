@@ -69,6 +69,7 @@
                               </div>
                             </div>
                           </div>
+                          <a href="{% url 'edit' student.id %}" class="btn btn-warning me-1"><i class="ri-edit-box-line"></i></a>
                           </td>
                         </tr>
                       {% endfor %}
@@ -88,6 +89,5 @@
 </div>
 </div>
 {% endif %}
-<button type="button" class="btn btn-success">Add Student</button>
-
+<a type="button" class="btn btn-success" href="{% url 'add'%}">Add Student</a>
 {% endblock body %}
