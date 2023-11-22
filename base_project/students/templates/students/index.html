@@ -71,7 +71,40 @@
                           <td>{{student.email }}</td>
                           <td>{{student.field_of_study }}</td>
                           <td>{{student.gpa }}</td>
-                          <td>Actions</td>
+                          <td>
+                            <a href="{% url 'view_student' student.id %}" class="btn btn-success me-1" data-bs-toggle="modal" data-bs-target="#mymodal{{ student.id }}">
+                              <i class="ri-eye-line"></i>
+                          </a>
+                          
+
+                           <!--modal component--> 
+                           <div class="modal" id="mymodal{{student.id}}" bis_skin_checked="1" tabindex="-1" aria-labelledby="myModalLabel1" aria-hidden="true">
+                            <div class="modal-dialog" role="document" bis_skin_checked="1">
+                              <div class="modal-content" bis_skin_checked="1">
+                                <div class="modal-header" bis_skin_checked="1">
+                                  <h5 class="modal-title">Student Detail</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true"></span>
+                                  </button>
+                                </div>
+                                <div class="modal-body" bis_skin_checked="1">
+                                  <ul class="list-unstyled">
+                                    <li>Student Number : <strong> {{student.student_number}}</strong></li>
+                                    <li>First Name : <strong> {{student.first_name}}</strong></li>
+                                    <li>Last Name: <strong> {{student.last_name}}</strong></li>
+                                    <li>Email : <strong> {{student.email}}</strong></li>
+                                    <li>Field of Study : <strong> {{student.field_of_study}}</strong></li>
+                                    <li>GPA : <strong> {{student.gpa}}</strong></li>
+                                    
+                                  </ul>
+                                </div>
+                                <div class="modal-footer" bis_skin_checked="1">
+                                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          </td>
                         </tr>
                       {% endfor %}
                     </tbody>
@@ -87,6 +120,7 @@
               </div>
         </div>
     </div>
+</div>
 </div>
 {% endif %}
 <button type="button" class="btn btn-success">Add Student</button>
