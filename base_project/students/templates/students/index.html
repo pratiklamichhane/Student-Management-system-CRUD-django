@@ -70,6 +70,31 @@
                             </div>
                           </div>
                           <a href="{% url 'edit' student.id %}" class="btn btn-warning me-1"><i class="ri-edit-box-line"></i></a>
+
+                          <a href="" type="button" class="btn btn-danger"  data-bs-toggle="modal" data-bs-target="#delete{{student.id}}"><i class="ri-delete-bin-line"></i></a>
+                          <!--modal component--> 
+                          <div class="modal" id="delete{{student.id}}" bis_skin_checked="1" tabindex="-1" aria-labelledby="myModalLabel2" aria-hidden="true">
+                            <div class="modal-dialog" role="document" bis_skin_checked="1">
+                              <div class="modal-content" bis_skin_checked="1">
+                                <div class="modal-header" bis_skin_checked="1">
+                                  <h5 class="modal-title">Delete Student {{student.first_name}}</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true"></span>
+                                  </button>
+                                </div>
+                                <div class="modal-body" bis_skin_checked="1">
+              <p>Are you sure you want to delete student ? <strong>{{student.first_name}}</strong> </p>
+                                </div>
+                                <div class="modal-footer" bis_skin_checked="1">
+                                  <form action="{% url 'delete' student.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <input type="submit" class="btn btn-danger" value="Delete">
+                                  </form>
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                           </td>
                         </tr>
                       {% endfor %}
