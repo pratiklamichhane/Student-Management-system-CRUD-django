@@ -18,7 +18,7 @@
           <div class="collapse navbar-collapse" id="navbarColor01" bis_skin_checked="1">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link active" href="#"> <i class="ri-home-office-fill"></i>Home 
+                <a class="nav-link active" href="#"> <i class="ri-dashboard-line"></i> Dashboard 
                   <span class="visually-hidden">(current)</span>
                 </a>
               </li>
@@ -26,7 +26,7 @@
                 <a class="nav-link" href="#"><i class="ri-add-circle-fill"></i>Add Student</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="#"> <i class="ri-account-circle-line"></i> Account</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#"> <i class="ri-github-fill"></i>Source Code</a>
@@ -40,27 +40,56 @@
         </div>
       </nav>    
 <div class="container-fluid">
+  {% if students %}
     <h3 class="m-4">All Students</h3>
     <div class="row">
         <div class="col-12">
-            {% if students %}
+          <div class="card bg-light ms-4 me-4 mb-4" style="max-width: 100%;" bis_skin_checked="1">
+            <div class="card-header" bis_skin_checked="1">Students Records</div>
+            <div class="card-body" bis_skin_checked="1">
+              <p class="card-text">
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Student Number</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Field of study</th>
+                        <th scope="col">GPA</th>
+                        <th scope="col">Actions</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for student in students %}
+                        <tr>
+                          <td>{{student.student_number}}</td>
+                          <td>{{student.first_name}}</td>
+                          <td>{{student.last_name}}</td>
+                          <td>{{student.email }}</td>
+                          <td>{{student.field_of_study }}</td>
+                          <td>{{student.gpa }}</td>
+                          <td>Actions</td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </p>
             {% else %}
-            <div class="alert alert-dismissible alert-danger" bis_skin_checked="1">
+            <div class="alert alert-dismissible alert-danger mt-3 mb-4" bis_skin_checked="1">
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 <strong>Opps!</strong> <a href="#" class="alert-link">No students available </a> Try adding some and refresh the page.
               </div>
-            {% endif %}
-            <div class="card bg-light ms-4 me-4 mb-4" style="max-width: 100%;" bis_skin_checked="1">
-                <div class="card-header" bis_skin_checked="1">Header</div>
-                <div class="card-body" bis_skin_checked="1">
-                  <h4 class="card-title">Light card title</h4>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
               </div>
         </div>
     </div>
 </div>
-
+{% endif %}
+<button type="button" class="btn btn-success">Add Student</button>
 <footer class="mt-auto mb-4">
 <div class="text-center">
     <span>
