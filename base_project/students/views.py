@@ -44,8 +44,6 @@ def add(request):
     return render(request , 'students/add.html', {
         'form': studentForm()
     })
-
-
 def edit(request , id):
     if request.method == 'POST':
         student= Student.objects.get(pk=id)
@@ -56,14 +54,12 @@ def edit(request , id):
                 'form' : form,
                 'success': True
             })
-        
     else:
         student = Student.objects.get(pk=id)
         form = studentForm(instance=student)
     return render(request , 'students/edit.html', {
         'form':form
     })
-
 def delete(request , id):
     if request.method =='POST':
         student = Student.objects.get(pk=id)
