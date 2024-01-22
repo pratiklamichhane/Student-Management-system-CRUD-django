@@ -65,3 +65,5 @@ def delete(request , id):
         student = Student.objects.get(pk=id)
         student.delete()
     return HttpResponseRedirect(reverse('index'))
+
+#he;;p
