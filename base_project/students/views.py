@@ -66,4 +66,3 @@ def delete(request , id):
         student.delete()
     return HttpResponseRedirect(reverse('index'))
 
-#he;;p
