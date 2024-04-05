@@ -1,5 +1,5 @@
 #Student Management System using Django
-This project is a Student Management System built with Django, allowing users to perform CRUD (Create, Read, Update, Delete) operations on student data.
+This project   is a Student Management System built with Django, allowing users to perform CRUD (Create, Read, Update, Delete) operations on student data.
 
 #Features
 User Authentication: Secure user authentication and authorization system.
